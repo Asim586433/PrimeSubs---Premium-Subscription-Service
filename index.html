@@ -35,6 +35,9 @@
             background-color: #f5f7ff;
             color: var(--dark);
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
@@ -102,6 +105,7 @@
 
         .section {
             padding: 80px 0;
+            flex: 1;
         }
 
         .section-title {
@@ -310,6 +314,10 @@
             margin-right: 10px;
         }
 
+        .pricing-features li .fa-times {
+            color: var(--danger);
+        }
+
         .pricing-footer {
             padding: 20px;
         }
@@ -503,11 +511,49 @@
             resize: vertical;
         }
 
+        /* Sign In Form */
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .auth-form {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .auth-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .auth-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .auth-links a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark);
             color: var(--white);
             padding: 60px 0 30px;
+            margin-top: auto;
         }
 
         .footer-content {
@@ -629,6 +675,46 @@
             margin-top: 10px;
         }
 
+        /* Page Content */
+        .page-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Legal Pages */
+        .legal-content {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .legal-content h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .legal-content h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: var(--dark);
+        }
+
+        .legal-content p {
+            margin-bottom: 15px;
+        }
+
+        .legal-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .legal-content li {
+            margin-bottom: 10px;
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .dashboard {
@@ -707,6 +793,10 @@
             .plan-actions .btn {
                 width: 100%;
             }
+
+            .auth-form {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
@@ -721,7 +811,7 @@
                     <li><a href="subscription.html">Subscription Plans</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#" class="btn">Sign In</a></li>
+                    <li><a href="signin.html" class="btn">Sign In</a></li>
                 </ul>
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
@@ -730,116 +820,500 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Main Content -->
+    <main class="section">
         <div class="container">
-            <div class="hero-content">
-                <h1>Premium Subscription Service</h1>
-                <p>Get access to exclusive content, features, and benefits with our flexible subscription plans tailored to your needs.</p>
-                <a href="subscription.html" class="btn">Explore Plans</a>
-            </div>
-        </div>
-    </section>
+            <!-- Homepage Content -->
+            <div id="homepage" class="page-content">
+                <!-- Hero Section -->
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1>Premium Subscription Service</h1>
+                        <p>Get access to exclusive content, features, and benefits with our flexible subscription plans tailored to your needs.</p>
+                        <a href="subscription.html" class="btn">Explore Plans</a>
+                    </div>
+                </section>
 
-    <!-- Features Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose PrimeSubs?</h2>
-                <p>Our subscription service offers unparalleled value with features designed to enhance your experience.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
+                <!-- Features Section -->
+                <section class="section">
+                    <div class="section-title">
+                        <h2>Why Choose PrimeSubs?</h2>
+                        <p>Our subscription service offers unparalleled value with features designed to enhance your experience.</p>
                     </div>
-                    <h3>Fast Delivery</h3>
-                    <p>Get instant access to all features immediately after subscription.</p>
-                </div>
-                <div class="feature-card card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="features-grid">
+                        <div class="feature-card card">
+                            <div class="feature-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3>Fast Delivery</h3>
+                            <p>Get instant access to all features immediately after subscription.</p>
+                        </div>
+                        <div class="feature-card card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Secure Payment</h3>
+                            <p>Your payment information is protected with industry-standard security.</p>
+                        </div>
+                        <div class="feature-card card">
+                            <div class="feature-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <h3>Flexible Plans</h3>
+                            <p>Easily upgrade, downgrade, or cancel your subscription anytime.</p>
+                        </div>
                     </div>
-                    <h3>Secure Payment</h3>
-                    <p>Your payment information is protected with industry-standard security.</p>
-                </div>
-                <div class="feature-card card">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3>Flexible Plans</h3>
-                    <p>Easily upgrade, downgrade, or cancel your subscription anytime.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                </section>
 
-    <!-- Pricing Section -->
-    <section class="section" style="background-color: var(--light);">
-        <div class="container">
-            <div class="section-title">
-                <h2>Subscription Plans</h2>
-                <p>Choose the plan that best fits your needs. All plans include a 14-day free trial.</p>
+                <!-- Pricing Section -->
+                <section class="section" style="background-color: var(--light);">
+                    <div class="section-title">
+                        <h2>Subscription Plans</h2>
+                        <p>Choose the plan that best fits your needs. All plans include a 14-day free trial.</p>
+                    </div>
+                    <div class="pricing-grid">
+                        <div class="pricing-card card">
+                            <div class="pricing-header">
+                                <h3>Basic</h3>
+                                <div class="price">$9.99<span>/month</span></div>
+                                <p>Perfect for individuals getting started</p>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Access to basic features</li>
+                                <li><i class="fas fa-check"></i> 5GB storage</li>
+                                <li><i class="fas fa-check"></i> Email support</li>
+                                <li><i class="fas fa-check"></i> Basic analytics</li>
+                                <li><i class="fas fa-times"></i> Advanced features</li>
+                                <li><i class="fas fa-times"></i> Priority support</li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <a href="payment.html?plan=basic" class="btn btn-outline">Select Plan</a>
+                            </div>
+                        </div>
+                        <div class="pricing-card card popular">
+                            <div class="popular-badge">Most Popular</div>
+                            <div class="pricing-header">
+                                <h3>Pro</h3>
+                                <div class="price">$19.99<span>/month</span></div>
+                                <p>Ideal for growing businesses</p>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> All Basic features</li>
+                                <li><i class="fas fa-check"></i> 50GB storage</li>
+                                <li><i class="fas fa-check"></i> Priority support</li>
+                                <li><i class="fas fa-check"></i> Advanced analytics</li>
+                                <li><i class="fas fa-check"></i> Custom integrations</li>
+                                <li><i class="fas fa-times"></i> Dedicated account manager</li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <a href="payment.html?plan=pro" class="btn">Select Plan</a>
+                            </div>
+                        </div>
+                        <div class="pricing-card card">
+                            <div class="pricing-header">
+                                <h3>Enterprise</h3>
+                                <div class="price">$49.99<span>/month</span></div>
+                                <p>For organizations with advanced needs</p>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> All Pro features</li>
+                                <li><i class="fas fa-check"></i> Unlimited storage</li>
+                                <li><i class="fas fa-check"></i> 24/7 premium support</li>
+                                <li><i class="fas fa-check"></i> Custom solutions</li>
+                                <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                                <li><i class="fas fa-check"></i> SLA guarantee</li>
+                            </ul>
+                            <div class="pricing-footer">
+                                <a href="payment.html?plan=enterprise" class="btn btn-outline">Select Plan</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card card">
-                    <div class="pricing-header">
-                        <h3>Basic</h3>
-                        <div class="price">$9.99<span>/month</span></div>
-                        <p>Perfect for individuals getting started</p>
+
+            <!-- Subscription Page Content -->
+            <div id="subscription-page" class="page-content" style="display: none;">
+                <div class="section-title">
+                    <h2>Choose Your Subscription Plan</h2>
+                    <p>Select the plan that works best for you. All plans include a 14-day free trial with no commitment.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card card">
+                        <div class="pricing-header">
+                            <h3>Basic</h3>
+                            <div class="price">$9.99<span>/month</span></div>
+                            <p>Perfect for individuals getting started</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Access to basic features</li>
+                            <li><i class="fas fa-check"></i> 5GB storage</li>
+                            <li><i class="fas fa-check"></i> Email support</li>
+                            <li><i class="fas fa-check"></i> Basic analytics</li>
+                            <li><i class="fas fa-times"></i> Advanced features</li>
+                            <li><i class="fas fa-times"></i> Priority support</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <a href="payment.html?plan=basic" class="btn btn-outline">Select Plan</a>
+                        </div>
                     </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Access to basic features</li>
-                        <li><i class="fas fa-check"></i> 5GB storage</li>
-                        <li><i class="fas fa-check"></i> Email support</li>
-                        <li><i class="fas fa-check"></i> Basic analytics</li>
-                        <li><i class="fas fa-times"></i> Advanced features</li>
-                        <li><i class="fas fa-times"></i> Priority support</li>
-                    </ul>
-                    <div class="pricing-footer">
-                        <a href="payment.html?plan=basic" class="btn btn-outline">Select Plan</a>
+                    <div class="pricing-card card popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="pricing-header">
+                            <h3>Pro</h3>
+                            <div class="price">$19.99<span>/month</span></div>
+                            <p>Ideal for growing businesses</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> All Basic features</li>
+                            <li><i class="fas fa-check"></i> 50GB storage</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                            <li><i class="fas fa-check"></i> Advanced analytics</li>
+                            <li><i class="fas fa-check"></i> Custom integrations</li>
+                            <li><i class="fas fa-times"></i> Dedicated account manager</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <a href="payment.html?plan=pro" class="btn">Select Plan</a>
+                        </div>
+                    </div>
+                    <div class="pricing-card card">
+                        <div class="pricing-header">
+                            <h3>Enterprise</h3>
+                            <div class="price">$49.99<span>/month</span></div>
+                            <p>For organizations with advanced needs</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> All Pro features</li>
+                            <li><i class="fas fa-check"></i> Unlimited storage</li>
+                            <li><i class="fas fa-check"></i> 24/7 premium support</li>
+                            <li><i class="fas fa-check"></i> Custom solutions</li>
+                            <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                            <li><i class="fas fa-check"></i> SLA guarantee</li>
+                        </ul>
+                        <div class="pricing-footer">
+                            <a href="payment.html?plan=enterprise" class="btn btn-outline">Select Plan</a>
+                        </div>
                     </div>
                 </div>
-                <div class="pricing-card card popular">
-                    <div class="popular-badge">Most Popular</div>
-                    <div class="pricing-header">
-                        <h3>Pro</h3>
-                        <div class="price">$19.99<span>/month</span></div>
-                        <p>Ideal for growing businesses</p>
+            </div>
+
+            <!-- Payment Page Content -->
+            <div id="payment-page" class="page-content" style="display: none;">
+                <div class="section-title">
+                    <h2>Complete Your Subscription</h2>
+                    <p>You're one step away from accessing premium features. Fill in your details below.</p>
+                </div>
+                <div class="payment-form card">
+                    <h3 id="selectedPlan">Pro Plan - $19.99/month</h3>
+                    <p>14-day free trial included</p>
+                    
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Payment Method</label>
+                            <div class="payment-methods">
+                                <div class="payment-method active">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <p>Credit Card</p>
+                                </div>
+                                <div class="payment-method">
+                                    <i class="fab fa-paypal"></i>
+                                    <p>PayPal</p>
+                                </div>
+                                <div class="payment-method">
+                                    <i class="fas fa-university"></i>
+                                    <p>Bank Transfer</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" class="form-control" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" class="form-control" placeholder="123" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="coupon">Coupon Code (Optional)</label>
+                            <input type="text" id="coupon" class="form-control" placeholder="DISCOUNT10">
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe Now</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Dashboard Page Content -->
+            <div id="dashboard-page" class="page-content" style="display: none;">
+                <div class="section-title">
+                    <h2>Your Account Dashboard</h2>
+                    <p>Manage your subscription and account settings from one place.</p>
+                </div>
+                
+                <div class="dashboard">
+                    <div class="dashboard-sidebar">
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>John Doe</h3>
+                            <p>john@example.com</p>
+                        </div>
+                        <ul class="sidebar-menu">
+                            <li><a href="#" class="active">Subscription</a></li>
+                            <li><a href="#">Billing History</a></li>
+                            <li><a href="#">Account Settings</a></li>
+                            <li><a href="#">Notifications</a></li>
+                            <li><a href="#">Help & Support</a></li>
+                        </ul>
                     </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> All Basic features</li>
-                        <li><i class="fas fa-check"></i> 50GB storage</li>
-                        <li><i class="fas fa-check"></i> Priority support</li>
-                        <li><i class="fas fa-check"></i> Advanced analytics</li>
-                        <li><i class="fas fa-check"></i> Custom integrations</li>
-                        <li><i class="fas fa-times"></i> Dedicated account manager</li>
-                    </ul>
-                    <div class="pricing-footer">
-                        <a href="payment.html?plan=pro" class="btn">Select Plan</a>
+                    
+                    <div class="dashboard-content">
+                        <div class="dashboard-section">
+                            <h3>Subscription Overview</h3>
+                            <div class="subscription-info">
+                                <div class="info-card">
+                                    <h4>Current Plan</h4>
+                                    <p>Pro</p>
+                                </div>
+                                <div class="info-card">
+                                    <h4>Next Billing</h4>
+                                    <p>June 15, 2025</p>
+                                </div>
+                                <div class="info-card">
+                                    <h4>Status</h4>
+                                    <p style="color: var(--success);">Active</p>
+                                </div>
+                            </div>
+                            
+                            <h4>Plan Details</h4>
+                            <p>You're currently on the <strong>Pro plan</strong> at $19.99/month. Your subscription will automatically renew on June 15, 2025.</p>
+                            
+                            <div class="plan-actions">
+                                <a href="subscription.html" class="btn btn-outline">Change Plan</a>
+                                <a href="#" class="btn btn-danger" id="cancelBtn">Cancel Subscription</a>
+                                <a href="payment.html?plan=pro" class="btn">Update Payment Method</a>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-section">
+                            <h3>Billing History</h3>
+                            <div class="card">
+                                <table style="width: 100%; border-collapse: collapse;">
+                                    <thead>
+                                        <tr style="border-bottom: 1px solid var(--light-gray);">
+                                            <th style="padding: 10px; text-align: left;">Date</th>
+                                            <th style="padding: 10px; text-align: left;">Description</th>
+                                            <th style="padding: 10px; text-align: left;">Amount</th>
+                                            <th style="padding: 10px; text-align: left;">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 10px;">May 15, 2025</td>
+                                            <td style="padding: 10px;">Pro Plan Subscription</td>
+                                            <td style="padding: 10px;">$19.99</td>
+                                            <td style="padding: 10px; color: var(--success);">Paid</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px;">April 15, 2025</td>
+                                            <td style="padding: 10px;">Pro Plan Subscription</td>
+                                            <td style="padding: 10px;">$19.99</td>
+                                            <td style="padding: 10px; color: var(--success);">Paid</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px;">March 15, 2025</td>
+                                            <td style="padding: 10px;">Pro Plan Subscription</td>
+                                            <td style="padding: 10px;">$19.99</td>
+                                            <td style="padding: 10px; color: var(--success);">Paid</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="pricing-card card">
-                    <div class="pricing-header">
-                        <h3>Enterprise</h3>
-                        <div class="price">$49.99<span>/month</span></div>
-                        <p>For organizations with advanced needs</p>
+            </div>
+
+            <!-- Contact Page Content -->
+            <div id="contact-page" class="page-content" style="display: none;">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Have questions? We're here to help. Send us a message and we'll respond as soon as possible.</p>
+                </div>
+                
+                <div class="contact-form card">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Full Name</label>
+                                <input type="text" id="contactName" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address</label>
+                                <input type="email" id="contactEmail" class="form-control" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="How can we help you?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Please describe your inquiry in detail..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="section-title" style="margin-top: 60px;">
+                    <h2>Other Ways to Reach Us</h2>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Support</h3>
+                        <p>Send us an email at support@primesubs.com and we'll respond within 24 hours.</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> All Pro features</li>
-                        <li><i class="fas fa-check"></i> Unlimited storage</li>
-                        <li><i class="fas fa-check"></i> 24/7 premium support</li>
-                        <li><i class="fas fa-check"></i> Custom solutions</li>
-                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
-                        <li><i class="fas fa-check"></i> SLA guarantee</li>
-                    </ul>
-                    <div class="pricing-footer">
-                        <a href="payment.html?plan=enterprise" class="btn btn-outline">Select Plan</a>
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone Support</h3>
+                        <p>Call us at +1 (555) 123-4567 during business hours (9AM-5PM EST).</p>
+                    </div>
+                    <div class="feature-card card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Live Chat</h3>
+                        <p>Chat with our support team in real-time during business hours.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sign In Page Content -->
+            <div id="signin-page" class="page-content" style="display: none;">
+                <div class="auth-container">
+                    <div class="auth-form">
+                        <h2>Sign In to Your Account</h2>
+                        <form id="signinForm">
+                            <div class="form-group">
+                                <label for="signinEmail">Email Address</label>
+                                <input type="email" id="signinEmail" class="form-control" placeholder="john@example.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="signinPassword">Password</label>
+                                <input type="password" id="signinPassword" class="form-control" placeholder="Enter your password" required>
+                            </div>
+                            
+                            <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <input type="checkbox" id="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="#" style="color: var(--primary); text-decoration: none;">Forgot password?</a>
+                            </div>
+                            
+                            <button type="submit" class="btn" style="width: 100%;">Sign In</button>
+                            
+                            <div class="auth-links">
+                                <p>Don't have an account? <a href="#">Sign up here</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legal Pages Content -->
+            <div id="legal-page" class="page-content" style="display: none;">
+                <div class="legal-content">
+                    <h1 id="legal-title">Privacy Policy</h1>
+                    <p>Last updated: June 1, 2025</p>
+                    
+                    <div id="privacy-content">
+                        <h2>1. Information We Collect</h2>
+                        <p>We collect information you provide directly to us when you create an account, subscribe to our services, or contact us for support. This may include:</p>
+                        <ul>
+                            <li>Personal identification information (Name, email address, phone number, etc.)</li>
+                            <li>Payment information (credit card details, which are processed by our payment partners)</li>
+                            <li>Account preferences and settings</li>
+                        </ul>
+                        
+                        <h2>2. How We Use Your Information</h2>
+                        <p>We use the information we collect to:</p>
+                        <ul>
+                            <li>Provide, maintain, and improve our services</li>
+                            <li>Process transactions and send related information</li>
+                            <li>Send you technical notices, updates, and support messages</li>
+                            <li>Respond to your comments and questions</li>
+                        </ul>
+                        
+                        <h2>3. Information Sharing</h2>
+                        <p>We do not sell, trade, or rent your personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners and advertisers.</p>
+                    </div>
+                    
+                    <div id="terms-content" style="display: none;">
+                        <h2>1. Acceptance of Terms</h2>
+                        <p>By accessing and using PrimeSubs, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                        
+                        <h2>2. Use License</h2>
+                        <p>Permission is granted to temporarily access the materials on PrimeSubs' website for personal, non-commercial transitory viewing only.</p>
+                        
+                        <h2>3. Subscription Terms</h2>
+                        <p>Subscriptions are billed in advance on a monthly or yearly basis and are non-refundable for the subscription period they are purchased for.</p>
+                    </div>
+                    
+                    <div id="cookie-content" style="display: none;">
+                        <h2>1. What Are Cookies</h2>
+                        <p>Cookies are small text files that are placed on your computer by websites that you visit. They are widely used in order to make websites work, or work more efficiently, as well as to provide information to the owners of the site.</p>
+                        
+                        <h2>2. How We Use Cookies</h2>
+                        <p>We use cookies to understand and save your preferences for future visits and compile aggregate data about site traffic and site interactions.</p>
+                        
+                        <h2>3. Your Choices Regarding Cookies</h2>
+                        <p>You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies via your browser settings.</p>
+                    </div>
+                    
+                    <div id="refund-content" style="display: none;">
+                        <h2>1. Refund Policy</h2>
+                        <p>We offer a 14-day money-back guarantee for all new subscriptions. If you are not satisfied with our service within the first 14 days of your subscription, you can request a full refund.</p>
+                        
+                        <h2>2. How to Request a Refund</h2>
+                        <p>To request a refund, please contact our support team with your account details and reason for cancellation. Refunds will be processed within 7-10 business days.</p>
+                        
+                        <h2>3. Exceptions</h2>
+                        <p>Refunds are not available for accounts that have violated our terms of service or for subscriptions that are beyond the 14-day trial period.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -867,10 +1341,10 @@
                 <div class="footer-column">
                     <h3>Legal</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#" class="legal-link" data-page="privacy">Privacy Policy</a></li>
+                        <li><a href="#" class="legal-link" data-page="terms">Terms of Service</a></li>
+                        <li><a href="#" class="legal-link" data-page="cookie">Cookie Policy</a></li>
+                        <li><a href="#" class="legal-link" data-page="refund">Refund Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -883,7 +1357,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 PrimeSubs. All rights reserved.</p>
+                <p>&copy; 2025 PrimeSubs. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -898,7 +1372,126 @@
         </div>
     </div>
 
+    <!-- Cancel Subscription Modal -->
+    <div id="cancelModal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-exclamation-triangle" style="font-size: 60px; color: var(--danger); margin-bottom: 20px;"></i>
+            <h3>Cancel Subscription?</h3>
+            <p>Are you sure you want to cancel your subscription? You'll lose access to premium features at the end of your billing cycle.</p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn btn-danger" id="confirmCancel">Yes, Cancel</button>
+                <button class="btn btn-outline" id="keepSubscription">Keep Subscription</button>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Page routing functionality
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Show the requested page
+            document.getElementById(pageId).style.display = 'block';
+            
+            // Update active navigation link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Set the active link based on the page
+            if (pageId === 'homepage') {
+                document.querySelector('.nav-links a[href="index.html"]').classList.add('active');
+            } else if (pageId === 'subscription-page') {
+                document.querySelector('.nav-links a[href="subscription.html"]').classList.add('active');
+            } else if (pageId === 'dashboard-page') {
+                document.querySelector('.nav-links a[href="dashboard.html"]').classList.add('active');
+            } else if (pageId === 'contact-page') {
+                document.querySelector('.nav-links a[href="contact.html"]').classList.add('active');
+            } else if (pageId === 'signin-page') {
+                document.querySelector('.nav-links a[href="signin.html"]').classList.add('active');
+            }
+        }
+
+        // Initialize page based on URL
+        function initPage() {
+            const path = window.location.pathname;
+            const page = path.split('/').pop() || 'index.html';
+            
+            switch(page) {
+                case 'index.html':
+                case '':
+                    showPage('homepage');
+                    break;
+                case 'subscription.html':
+                    showPage('subscription-page');
+                    break;
+                case 'payment.html':
+                    showPage('payment-page');
+                    // Set the selected plan based on URL parameters
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const plan = urlParams.get('plan');
+                    updateSelectedPlan(plan);
+                    break;
+                case 'dashboard.html':
+                    showPage('dashboard-page');
+                    break;
+                case 'contact.html':
+                    showPage('contact-page');
+                    break;
+                case 'signin.html':
+                    showPage('signin-page');
+                    break;
+                case 'privacy.html':
+                case 'terms.html':
+                case 'cookie.html':
+                case 'refund.html':
+                    showLegalPage(page.replace('.html', ''));
+                    break;
+                default:
+                    showPage('homepage');
+            }
+        }
+
+        // Update the selected plan on payment page
+        function updateSelectedPlan(plan) {
+            if (!plan) return;
+            
+            const planTitles = {
+                'basic': 'Basic Plan - $9.99/month',
+                'pro': 'Pro Plan - $19.99/month',
+                'enterprise': 'Enterprise Plan - $49.99/month'
+            };
+            
+            if (document.getElementById('selectedPlan')) {
+                document.getElementById('selectedPlan').textContent = planTitles[plan] || 'Selected Plan';
+            }
+        }
+
+        // Show legal pages
+        function showLegalPage(page) {
+            showPage('legal-page');
+            
+            // Hide all legal content sections
+            document.getElementById('privacy-content').style.display = 'none';
+            document.getElementById('terms-content').style.display = 'none';
+            document.getElementById('cookie-content').style.display = 'none';
+            document.getElementById('refund-content').style.display = 'none';
+            
+            // Show the requested legal content and update title
+            const titles = {
+                'privacy': 'Privacy Policy',
+                'terms': 'Terms of Service',
+                'cookie': 'Cookie Policy',
+                'refund': 'Refund Policy'
+            };
+            
+            document.getElementById('legal-title').textContent = titles[page];
+            document.getElementById(`${page}-content`).style.display = 'block';
+        }
+
         // Mobile menu toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
@@ -935,53 +1528,94 @@
                 });
                 
                 if (isValid) {
-                    // Show success message
+                    // Show success message based on form type
                     if (this.id === 'paymentForm') {
                         document.getElementById('successModal').style.display = 'flex';
                     } else if (this.id === 'contactForm') {
                         alert('Thank you for your message! We will get back to you soon.');
                         this.reset();
-                    } else if (this.id === 'subscriptionForm') {
-                        alert('Your subscription has been updated successfully!');
+                    } else if (this.id === 'signinForm') {
+                        // In a real app, this would redirect to dashboard after authentication
+                        window.location.href = 'dashboard.html';
                     }
                 }
             });
         });
 
-        // Close modal
+        // Cancel subscription functionality
+        document.getElementById('cancelBtn')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('cancelModal').style.display = 'flex';
+        });
+
+        document.getElementById('confirmCancel')?.addEventListener('click', function() {
+            alert('Your subscription has been canceled. You will have access until the end of your billing period.');
+            document.getElementById('cancelModal').style.display = 'none';
+            // In a real app, this would update the subscription status
+        });
+
+        document.getElementById('keepSubscription')?.addEventListener('click', function() {
+            document.getElementById('cancelModal').style.display = 'none';
+        });
+
+        // Close modals when clicking outside
         window.addEventListener('click', function(e) {
-            const modal = document.getElementById('successModal');
-            if (e.target === modal) {
-                modal.style.display = 'none';
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Legal page links
+        document.querySelectorAll('.legal-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.getAttribute('data-page');
+                showLegalPage(page);
+                // Update URL without reloading
+                window.history.pushState(null, null, `${page}.html`);
+            });
+        });
+
+        // Navigation links
+        document.querySelectorAll('.nav-links a, .footer-links a').forEach(link => {
+            if (link.getAttribute('href') && !link.getAttribute('href').startsWith('#')) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (href === 'index.html' || href === '/') {
+                        showPage('homepage');
+                        window.history.pushState(null, null, 'index.html');
+                    } else if (href === 'subscription.html') {
+                        showPage('subscription-page');
+                        window.history.pushState(null, null, 'subscription.html');
+                    } else if (href === 'dashboard.html') {
+                        showPage('dashboard-page');
+                        window.history.pushState(null, null, 'dashboard.html');
+                    } else if (href === 'contact.html') {
+                        showPage('contact-page');
+                        window.history.pushState(null, null, 'contact.html');
+                    } else if (href === 'signin.html') {
+                        showPage('signin-page');
+                        window.history.pushState(null, null, 'signin.html');
+                    } else if (href === 'payment.html') {
+                        showPage('payment-page');
+                        window.history.pushState(null, null, 'payment.html');
+                    }
+                });
             }
         });
 
-        // Simulate plan selection from URL parameters
-        window.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const plan = urlParams.get('plan');
-            
-            if (plan) {
-                const planTitles = {
-                    'basic': 'Basic Plan',
-                    'pro': 'Pro Plan',
-                    'enterprise': 'Enterprise Plan'
-                };
-                
-                const planPrices = {
-                    'basic': '$9.99/month',
-                    'pro': '$19.99/month',
-                    'enterprise': '$49.99/month'
-                };
-                
-                if (document.getElementById('selectedPlan')) {
-                    document.getElementById('selectedPlan').textContent = planTitles[plan] || 'Selected Plan';
-                }
-                
-                if (document.getElementById('planPrice')) {
-                    document.getElementById('planPrice').textContent = planPrices[plan] || '';
-                }
-            }
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function() {
+            initPage();
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            initPage();
         });
     </script>
 </body>
